@@ -1,0 +1,122 @@
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+!.env.*.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# Dependencies and virtual environments
+node_modules/
+frontend/node_modules/
+backend/venv/
+venv/
+.venv/
+
+# Build outputs and caches
+build/
+dist/
+frontend/build/
+.cache/
+.pytest_cache/
+coverage/
+htmlcov/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+
+# Logs and runtime state
+logs/
+backend/logs/
+backend/arquivos/logs/
+*.log
+celerybeat-schedule
+
+# Local databases and generated data exports
+*.db
+*.sqlite
+*.sqlite3
+*.csv
+*.xls
+*.xlsx
+*.pdf
+*.bak
+*.backup
+*.backup*
+=*
+backup_*.json
+backup*.json
+response.json
+payload.json
+analise_webhooks_retroativo_*.json
+atualizacoes_executadas_*.json
+correcoes_retroativas_*.json
+recebedor*.json
+recebedor*.txt
+recebedores*.json
+recebedores*.txt
+clientes_encontrados_sistema.txt
+dados_extraidos_*/
+backend/delta-relatorio/
+backend/arquivos/*
+!backend/arquivos/.gitkeep
+
+# Generated source snapshots and investigation dumps
+backend_files_content.txt
+frontend_files_content.txt
+*_sdk_files*.txt
+*_files_*.txt
+digital_contracts_*.txt
+users_sdk_files*.txt
+estrutura_banco.txt
+
+# Root-level operational scratch files and reports
+/*.md
+!README.md
+!CONTRIBUTING.md
+!SECURITY.md
+/*.py
+/*.sql
+/*.txt
+/*.js
+/*.json
+/*.sh
+/regras_pagamento_clubecerto
+/scripts/
+/skills/
+/clinicorp/
+/examples/
+
+# Root-level operational artifacts kept only on the server
+/backups/
+/releases/
+
+# Backend operational scratch files at the directory root
+backend/*.md
+backend/*.py
+backend/*.sql
+backend/*.json
+backend/*.html
+backend/*.sh
+backend/*.txt
+!backend/requirements.txt
+
+# Frontend one-off investigation scripts
+frontend/*.py
+
+# Local assistant/tooling state
+.claude/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/

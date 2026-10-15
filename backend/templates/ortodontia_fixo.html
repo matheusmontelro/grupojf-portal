@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato de Tratamento Ortodôntico - Aparelho Fixo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .contract-type {
+            font-size: 24px;
+            font-weight: 300;
+        }
+        
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            color: #667eea;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .highlight {
+            background-color: #f3f4f6;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            margin: 15px 0;
+        }
+        
+        .treatment-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .detail-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e0e0e0;
+            z-index: 0;
+        }
+        
+        .timeline-item {
+            text-align: center;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .care-list {
+            background: #fef3c7;
+            border: 1px solid #fbbf24;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .care-list ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        
+        .care-list li {
+            margin: 8px 0;
+            color: #92400e;
+        }
+        
+        .signature-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px dashed #ccc;
+        }
+        
+        .signature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .signature-box {
+            text-align: center;
+        }
+        
+        .signature-line {
+            border-bottom: 2px solid #333;
+            margin: 40px 0 10px;
+            min-height: 40px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">{{razao_social}}</div>
+        <div class="contract-type">Contrato de Tratamento Ortodôntico - Aparelho Fixo</div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">📋 Dados do Paciente</div>
+        <div class="treatment-details">
+            <div class="detail-box">
+                <div class="detail-label">Nome Completo</div>
+                <div>{{paciente_nome}}</div>
+            </div>
+            <div class="detail-box">
+                <div class="detail-label">CPF</div>
+                <div>{{paciente_cpf}}</div>
+            </div>
+            <div class="detail-box">
+                <div class="detail-label">Telefone</div>
+                <div>{{paciente_telefone}}</div>
+            </div>
+            <div class="detail-box">
+                <div class="detail-label">Data do Contrato</div>
+                <div>{{data_contrato}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🦷 Detalhes do Tratamento Ortodôntico</div>
+        
+        <div class="highlight">
+            <strong>Tipo de Aparelho:</strong> Aparelho Ortodôntico Fixo Metálico/Estético<br>
+            <strong>Duração Estimada:</strong> 18 a 36 meses (podendo variar conforme complexidade)<br>
+            <strong>Ortodontista Responsável:</strong> {{dentista_nome}} - CRO: {{dentista_cro}}
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot">1</div>
+                <div>Avaliação e Documentação</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">2</div>
+                <div>Instalação do Aparelho</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">3</div>
+                <div>Manutenções Mensais</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">4</div>
+                <div>Remoção e Contenção</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">💰 Informações Financeiras</div>
+        
+        <div class="treatment-details">
+            <div class="detail-box">
+                <div class="detail-label">Valor Total do Tratamento</div>
+                <div style="font-size: 24px; color: #667eea; font-weight: bold;">{{valor_total}}</div>
+            </div>
+            <div class="detail-box">
+                <div class="detail-label">Forma de Pagamento</div>
+                <div>{{forma_pagamento}}</div>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <strong>⚠️ Importante:</strong> As manutenções mensais estão incluídas no valor do tratamento. 
+            Procedimentos adicionais como extrações, mini-implantes ou aparelhos auxiliares serão cobrados à parte.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">📌 Cuidados e Responsabilidades</div>
+        
+        <div class="care-list">
+            <strong>O paciente compromete-se a:</strong>
+            <ul>
+                <li>Comparecer às consultas mensais de manutenção</li>
+                <li>Manter excelente higiene bucal durante todo o tratamento</li>
+                <li>Evitar alimentos duros, pegajosos ou que possam danificar o aparelho</li>
+                <li>Usar elásticos e acessórios conforme orientação do ortodontista</li>
+                <li>Comunicar imediatamente quebras ou descolamentos de brackets</li>
+                <li>Usar a contenção após o tratamento pelo tempo determinado</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">⚖️ Termos e Condições</div>
+        
+        <p><strong>1. Duração do Tratamento:</strong> O tempo estimado pode variar de acordo com a resposta biológica individual, colaboração do paciente e complexidade do caso.</p>
+        
+        <p><strong>2. Garantia:</strong> O sucesso do tratamento depende da colaboração do paciente. Não há garantia de resultado em caso de não seguimento das orientações.</p>
+        
+        <p><strong>3. Desistência:</strong> Em caso de desistência, o paciente deverá comunicar com 30 dias de antecedência e não haverá devolução dos valores já pagos.</p>
+        
+        <p><strong>4. Atrasos:</strong> Faltas ou atrasos frequentes podem prolongar o tratamento e comprometer os resultados.</p>
+        
+        <p><strong>5. Contenção:</strong> O uso inadequado da contenção após o tratamento pode resultar em movimentação dentária e necessidade de retratamento.</p>
+    </div>
+
+    <div class="signature-section">
+        <p style="text-align: center; margin-bottom: 30px;">
+            <strong>Declaro ter lido e compreendido todos os termos deste contrato, concordando integralmente com as condições estabelecidas.</strong>
+        </p>
+        
+        <div class="signature-grid">
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <div>{{paciente_nome}}</div>
+                <div>Paciente/Responsável</div>
+            </div>
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <div>{{dentista_nome}}</div>
+                <div>Ortodontista - CRO: {{dentista_cro}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>{{razao_social}} - CNPJ: {{cnpj}}</p>
+        <p>{{endereco}} - Tel: {{telefone}}</p>
+        <p>Este documento foi assinado digitalmente em {{data_contrato}}</p>
+    </div>
+</body>
+</html>

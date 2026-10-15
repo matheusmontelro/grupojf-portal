@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato de Compra e Venda de Serviços Odontológicos</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 20px;
+            line-height: 1.4;
+            background: white;
+            font-size: 12px;
+        }
+        
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-area {
+            float: left;
+            width: 100px;
+            height: 80px;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f9f0;
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .contract-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 20px 0;
+            padding: 10px;
+            border: 2px solid #000;
+        }
+        
+        .vendor-info {
+            float: right;
+            text-align: right;
+            font-size: 11px;
+            margin-top: 10px;
+        }
+        
+        .clearfix { clear: both; }
+        
+        /* Tables - Desktop */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            border: 2px solid #000;
+        }
+        
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .section-header {
+            background-color: #e0e0e0;
+            font-weight: bold;
+            text-align: center;
+            font-size: 13px;
+        }
+        
+        .number-cell {
+            width: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        /* Mobile-friendly card layout */
+        .mobile-card {
+            display: none;
+            border: 2px solid #000;
+            margin-bottom: 15px;
+            background: white;
+        }
+        
+        .mobile-card-header {
+            background-color: #e0e0e0;
+            font-weight: bold;
+            text-align: center;
+            font-size: 13px;
+            padding: 10px;
+            border-bottom: 1px solid #000;
+        }
+        
+        .mobile-card-content {
+            padding: 15px;
+        }
+        
+        .mobile-field {
+            margin-bottom: 12px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+        
+        .mobile-field:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .mobile-field-label {
+            font-weight: bold;
+            color: #333;
+            font-size: 11px;
+            margin-bottom: 4px;
+        }
+        
+        .mobile-field-value {
+            font-size: 12px;
+            color: #000;
+        }
+        
+        .mobile-dependente {
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .mobile-dependente-header {
+            background-color: #f5f5f5;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 11px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .mobile-dependente-content {
+            padding: 10px;
+        }
+        
+        /* Contract Content */
+        .contract-content {
+            margin-top: 20px;
+            text-align: justify;
+            line-height: 1.5;
+        }
+        
+        .clause {
+            margin: 15px 0;
+        }
+        
+        .clause-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .paragraph {
+            margin: 10px 0;
+            text-indent: 20px;
+        }
+        
+        .highlight {
+            background-color: #ffffcc;
+            padding: 2px 4px;
+            font-weight: bold;
+        }
+        
+        /* Signatures */
+        .signatures {
+            margin-top: 40px;
+            page-break-inside: avoid;
+        }
+        
+        .signature-line {
+            border-bottom: 1px solid #000;
+            margin: 30px 20px 5px 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .signature-area {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .signature-box {
+            width: 45%;
+            text-align: center;
+        }
+        
+        .signature-image {
+            max-width: 100%;
+            max-height: 80px;
+            margin: 0 auto 10px auto;
+            display: block;
+        }
+        
+        .witness-area {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .witness-box {
+            width: 45%;
+        }
+        
+        .witness-line {
+            border-bottom: 1px solid #000;
+            margin: 20px 0 5px 0;
+        }
+        
+        /* Print styles */
+        @media print {
+            body { margin: 0; padding: 10px; }
+            .container { padding: 10px; }
+            .no-print { display: none; }
+            .mobile-card { display: none !important; }
+            table { display: table !important; }
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body { 
+                padding: 10px; 
+                font-size: 11px;
+            }
+            
+            .container { 
+                padding: 10px; 
+            }
+            
+            .logo-area { 
+                float: none; 
+                margin: 0 auto 10px; 
+                width: 80px;
+                height: 60px;
+                font-size: 12px;
+            }
+            
+            .vendor-info { 
+                float: none; 
+                text-align: center; 
+                margin-top: 10px;
+            }
+            
+            .contract-title {
+                font-size: 14px;
+                padding: 8px;
+            }
+            
+            /* Hide desktop tables on mobile */
+            table {
+                display: none;
+            }
+            
+            /* Show mobile cards */
+            .mobile-card {
+                display: block;
+            }
+            
+            .signature-area, .witness-area { 
+                flex-direction: column; 
+            }
+            
+            .signature-box, .witness-box { 
+                width: 100%; 
+                margin-bottom: 20px; 
+            }
+            
+            .contract-content {
+                font-size: 11px;
+                line-height: 1.4;
+            }
+            
+            .clause-title {
+                font-size: 12px;
+            }
+            
+            .highlight {
+                display: inline-block;
+                margin: 2px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body { 
+                padding: 8px; 
+                font-size: 10px;
+            }
+            
+            .container { 
+                padding: 8px; 
+            }
+            
+            .mobile-card-content {
+                padding: 10px;
+            }
+            
+            .mobile-field {
+                margin-bottom: 8px;
+            }
+            
+            .logo-area {
+                width: 70px;
+                height: 50px;
+                font-size: 10px;
+            }
+            
+            .contract-title {
+                font-size: 12px;
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-area">
+                <div>ODONTO<br>COMPANY</div>
+            </div>
+            
+            <div class="vendor-info">
+                <strong>VENDEDOR</strong><br>
+                {{vendedor_nome}}
+            </div>
+            
+            <div class="clearfix"></div>
+            
+            <div class="contract-title">
+                CONTRATO DE COMPRA E<br>
+                VENDA DE SERVIÇOS<br>
+                ODONTOLÓGICOS
+            </div>
+        </div>
+
+        <!-- Seção A - Vendedora (Desktop) -->
+        <table>
+            <tr>
+                <th class="section-header">A - VENDEDORA</th>
+            </tr>
+            <tr>
+                <td>
+                    Pelo presente Instrumento Particular, de um lado <strong>{{razao_social}}</strong>, inscrita no CNPJ/MF nº <strong>{{cnpj}}</strong>, com sede na cidade de {{empresa_cidade}} na {{endereco}} a seguir denominada <strong>VENDEDORA</strong> e por outro lado, como <strong>COMPRADOR</strong>, abaixo discriminado.
+                </td>
+            </tr>
+        </table>
+
+        <!-- Seção A - Vendedora (Mobile) -->
+        <div class="mobile-card">
+            <div class="mobile-card-header">A - VENDEDORA</div>
+            <div class="mobile-card-content">
+                Pelo presente Instrumento Particular, de um lado <strong>{{razao_social}}</strong>, inscrita no CNPJ/MF nº <strong>{{cnpj}}</strong>, com sede na cidade de {{empresa_cidade}} na {{endereco}} a seguir denominada <strong>VENDEDORA</strong> e por outro lado, como <strong>COMPRADOR</strong>, abaixo discriminado.
+            </div>
+        </div>
+
+        <!-- Seção B - Comprador (Desktop) -->
+        <table>
+            <tr>
+                <th colspan="4" class="section-header">B - COMPRADOR</th>
+            </tr>
+            <tr>
+                <td colspan="2" style="width: 60%; font-weight: bold;">NOME</td>
+                <td colspan="2" style="width: 40%; font-weight: bold;">DATA DE NASCIMENTO</td>
+            </tr>
+            <tr>
+                <td colspan="2">{{paciente_nome}}</td>
+                <td colspan="2">{{paciente_data_nascimento}}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">CPF</td>
+                <td style="font-weight: bold;">RG</td>
+                <td style="font-weight: bold;">ORGÃO EXPED</td>
+                <td style="font-weight: bold;">CONTRATANTE INCLUSO</td>
+            </tr>
+            <tr>
+                <td>{{paciente_cpf}}</td>
+                <td>{{paciente_rg}}</td>
+                <td>{{paciente_orgao_expedidor}}</td>
+                <td>SIM</td>
+            </tr>
+        </table>
+
+        <!-- Seção B - Comprador (Mobile) -->
+        <div class="mobile-card">
+            <div class="mobile-card-header">B - COMPRADOR</div>
+            <div class="mobile-card-content">
+                <div class="mobile-field">
+                    <div class="mobile-field-label">NOME</div>
+                    <div class="mobile-field-value">{{paciente_nome}}</div>
+                </div>
+                <div class="mobile-field">
+                    <div class="mobile-field-label">DATA DE NASCIMENTO</div>
+                    <div class="mobile-field-value">{{paciente_data_nascimento}}</div>
+                </div>
+                <div class="mobile-field">
+                    <div class="mobile-field-label">CPF</div>
+                    <div class="mobile-field-value">{{paciente_cpf}}</div>
+                </div>
+                <div class="mobile-field">
+                    <div class="mobile-field-label">RG</div>
+                    <div class="mobile-field-value">{{paciente_rg}}</div>
+                </div>
+                <div class="mobile-field">
+                    <div class="mobile-field-label">ÓRGÃO EXPEDIDOR</div>
+                    <div class="mobile-field-value">{{paciente_orgao_expedidor}}</div>
+                </div>
+                <div class="mobile-field">
+                    <div class="mobile-field-label">CONTRATANTE INCLUSO</div>
+                    <div class="mobile-field-value">SIM</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção C - Compradores Vinculados (Desktop) -->
+        <table>
+            <tr>
+                <th colspan="4" class="section-header">C - COMPRADORES VINCULADOS</th>
+            </tr>
+            {{dependentes_rows}}
+        </table>
+
+        <!-- Seção C - Compradores Vinculados (Mobile) -->
+        <div class="mobile-card">
+            <div class="mobile-card-header">C - COMPRADORES VINCULADOS</div>
+            <div class="mobile-card-content">
+                {{dependentes_mobile}}
+            </div>
+        </div>
+
+        <!-- Seção D - Endereço (Desktop) -->
+        <table>
+            <tr>
+                <th colspan="3" class="section-header">D - ENDEREÇO</th>
+            </tr>
+            <tr>
+                <td colspan="2" style="font-weight: bold; width: 60%;">RESIDENCIAL</td>
+                <td style="font-weight: bold; width: 40%;">CEP</td>
+            </tr>
+            <tr>
+                <td colspan="2">{{paciente_endereco}}</td>
+                <td>{{paciente_cep}}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">BAIRRO</td>
+                <td style="font-weight: bold;">CIDADE</td>
+                <td style="font-weight: bold;">ESTADO</td>
+            </tr>
+            <tr>
+                <td>{{paciente_bairro}}</td>
+                <td>{{paciente_cidade}}</td>
+                <td>{{paciente_estado}}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">TEL 1</td>
+                <td style="font-weight: bold;">TEL 2</td>
+                <td style="font-weight: bold;">EMAIL</td>
+            </tr>
+            <tr>
+                <td>{{paciente_telefone1}}</td>
+                <td>{{paciente_telefone2}}</td>
+                <td>{{paciente_email}}</td>
+            </tr>
+        </table>
+
+        <!-- Seção D - Endereço (Mobile) -->
+        <div class="mobile-card">
+            <div class="mobile-card-header">D - ENDEREÇO</div>
+            <div class="mobile-card-content">
+                <div class="mobile-field">
+                    <div class="mobile-field-label">RESIDENCIAL</div>
+                    <div class="mobile-field-value">{{paciente_endereco}}</div>
+                </div>
+                <div class="mobile-field">
+                    <div class="mobile-field-label">CEP</div>
+                    <div class="mobile-field-value">{{paciente_cep}}</div>
+                </div>
+                <div class="mobile-field">
+                    <div class="mobile-field-label">BAIRRO</div>
+                    <div class="mobile-field-value">{{paciente_bairro}}</div>
+                </div>
+                <div class="mobile-field">
+                    <div class="mobile-field-label">CIDADE</div>
+                    <div class="mobile-field-value">{{paciente_cidade}}</div>
+                </div>
+                <div class="mobile-field">
+                    <div class="mobile-field-label">ESTADO</div>
+                    <div class="mobile-field-value">{{paciente_estado}}</div>
+                </div>
+                <div class="mobile-field">
+                    <div class="mobile-field-label">TELEFONE 1</div>
+                    <div class="mobile-field-value">{{paciente_telefone1}}</div>
+                </div>
+                <div class="mobile-field">
+                    <div class="mobile-field-label">TELEFONE 2</div>
+                    <div class="mobile-field-value">{{paciente_telefone2}}</div>
+                </div>
+                <div class="mobile-field">
+                    <div class="mobile-field-label">EMAIL</div>
+                    <div class="mobile-field-value">{{paciente_email}}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Observação sobre tratamentos -->
+        <div style="text-align: center; padding: 10px; border: 1px solid #000; margin-bottom: 20px;">
+            {{observacao_tratamentos}}
+        </div>
+
+        <!-- Conteúdo do Contrato -->
+        <div class="contract-content">
+            <p>As partes acima já qualificadas e ora contratadas, resolvem na melhor forma de direito firmar o presente Contrato de Compra e Venda de Serviços Odontológicos de acordo com os termos abaixo elencados:</p>
+
+            <p>De início, para fins de esclarecimento, fica expresso que o presente <strong>Contrato de Compra e Venda de Serviços Odontológicos não é Plano de Saúde/Odontológico e nem um Seguro Saúde/Odontológicos</strong>. Declara a VENDEDORA, neste ato, que não possui vínculo com a assistência da saúde e não está vinculada à ANS - Agência Nacional de Saúde Suplementar.</p>
+
+            <p>Assim o presente contrato se trata de uma forma de compra pré-paga e/ou pós-paga de serviços odontológicos, que assegura ao(s) COMPRADOR(ES) apenas os serviços, preços e descontos aqui expressos.</p>
+
+            <div class="clause">
+                <div class="clause-title">Cláusula 1</div>
+                <p>A VENDEDORA se obriga a prestar serviços odontológicos ao(s) COMPRADOR(es), proporcionando atendimento de natureza Clínica e Cirúrgica, bem como, serviços complementares de diagnóstico, exceto qualquer tipo de atendimento hospitalar.</p>
+                <p><strong>Parágrafo Único:</strong> Para atendimento de serviços hospitalares, o interessado deve procurar a Unidade mais próxima para avaliação, compra e formalização de instrumento contratual próprio.</p>
+            </div>
+
+            <div class="clause">
+                <div class="clause-title">Cláusula 2</div>
+                <p>A VENDEDORA somente se responsabilizará pelo atendimento feito em suas unidades, e pelos cirurgiões dentistas de seu corpo clínico sendo que, qualquer espécie de consulta ou tratamento realizado por outros cirurgiões dentistas, isentará a mesma de quaisquer custos ou danos.</p>
+            </div>
+
+            <div class="clause">
+                <div class="clause-title">Cláusula 3</div>
+                <p>A VENDEDORA se obriga a oferecer ao(s) COMPRADOR(ES), a partir deste ato, todo tratamento contratado, da seguinte forma: valor de <strong>R$ 180,00</strong> (cento e oitenta reais) para avaliação, atendimento, raio-x, exames complementares e documentações iniciais; valor de <strong>R$ 180,00</strong> (cento e oitenta reais) para profilaxia; valor de <strong>R$ 60,00</strong> (sessenta reais) para instalação de aparelho ortodôntico; valor de <strong>R$ 35,00</strong> (trinta e cinco reais) para cada dente restaurado em resina; valor de <strong>R$ 35,00</strong> (trinta e cinco reais) para extrações, com exceção de terceiro molar; valor de <strong>R$ 35,00</strong> (trinta e cinco reais) para tratamento periodontal (raspagem cirúrgica e subgengival); valor de <strong>R$ 200,00</strong> (duzentos reais) para tratamento endodôntico (canal) por dente realizado.</p>
+                
+                <p><strong>Parágrafo Primeiro:</strong> A VENDEDORA fica obrigada a realizar os serviços odontológicos para o(s) COMPRADOR(ES), até o limite do valor deste contrato, descrito na cláusula 6. Caso o(s) COMPRADOR(ES) queira(m) realizar tratamentos que extrapolem o valor deste contrato, o montante excedente de referidos tratamentos poderão ser pagos a parte e acrescentados nas parcelas descritas na Cláusula 6 deste instrumento.</p>
+                
+                <p><strong>Parágrafo Segundo:</strong> O(s) COMPRADOR(ES) fica(m) autorizado(s) a realizar seus tratamentos excedentes mesmo sem nova assinatura de contrato de compra e venda junto à VENDEDORA, desde que esteja ciente e autorize o parcelamento de tais tratamentos através de nota promissória devidamente assinada pelo(s) COMPRADOR(ES).</p>
+            </div>
+
+            <div class="clause">
+                <div class="clause-title">Cláusula 4</div>
+                <p>Para as manutenções ortodônticas, o(s) COMPRADOR(ES) negociará(ão) valores com a VENDEDORA, após avaliação clínica, a qual definirá as necessidades de seu caso. Referidas manutenções ortodônticas serão pagas a parte bem como serão contratadas através de instrumento contratual próprio.</p>
+            </div>
+
+            <div class="clause">
+                <div class="clause-title">Cláusula 5</div>
+                <p>Para todos os demais tratamentos não mencionados na Cláusula 3, a VENDEDORA ficará obrigada a oferecer ao(s) COMPRADOR(ES), descontos de até 50% do valor da tabela praticada pela Odontocompany.</p>
+            </div>
+
+            <div class="clause">
+                <div class="clause-title">Cláusula 6</div>
+                <p>O(s) COMPRADOR(ES) se obriga(m) a pagar à VENDEDORA, pela compra expressa neste contrato, o valor total de <span class="highlight">R$ {{valor_total}}</span>, em <span class="highlight">{{numero_parcelas}} parcelas de R$ {{valor_parcela}}</span> com vencimento mensal todo dia <span class="highlight">{{dia_vencimento}}</span> de cada mês. A forma de pagamento das parcelas será em <span class="highlight">{{forma_pagamento}}</span>.</p>
+                <p><strong>Parágrafo Único:</strong> Qualquer pagamento referente ao presente instrumento de compra e venda somente será aceito após o início do tratamento adquirido.</p>
+            </div>
+
+            <div class="clause">
+                <div class="clause-title">Cláusula 7</div>
+                <p>Este contrato terá duração de 22 (vinte e dois) meses a contar da data de sua assinatura. Encerrado referido prazo, sem pendências de pagamentos e tratamentos, automaticamente os direitos e obrigações do presente instrumento serão extintos. Caso seja do interesse do(s) COMPRADOR(ES) proceder com nova compra, deverá(ão) comparecer na unidade VENDEDORA.</p>
+                <p><strong>Parágrafo Único:</strong> Na hipótese do(s) COMPRADOR(ES) cancelar este contrato antes de seu prazo previsto para término, deverá manifestar sua intenção, por escrito, na clínica VENDEDORA, momento em que será realizado um acerto de contas referente aos serviços já prestados. Caso o valor que já tenha sido pago for superior ao serviço realizado, a VENDEDORA se obriga a restituir o(s) COMPRADOR(ES) da diferença. Da mesma forma, caso os serviços até então prestados não estejam quitados, o(s) COMPRADOR(ES) se obriga(m) a quitá-los no ato da rescisão deste instrumento.</p>
+            </div>
+
+            <div class="clause">
+                <div class="clause-title">Cláusula 8</div>
+                <p>Em caso de parcelamento da compra, o(s) COMPRADOR(ES), se compromete(m) a pagar em dia suas parcelas, conforme expresso no presente documento. O atraso do pagamento implicará em multa de 2% ao mês, juros de mora pelos dias de inadimplência, além de ter seu tratamento clínico bloqueado, até o pagamento do valor pendente.</p>
+            </div>
+
+            <div class="clause">
+                <div class="clause-title">Cláusula 9</div>
+                <p>Para dirimir quaisquer controvérsias oriundas deste instrumento, será competente o foro da Comarca do Rio de Janeiro/RJ.</p>
+            </div>
+
+            <p style="margin-top: 30px;"><strong>Para fins de esclarecimento, fica expresso que o presente Contrato de Compra e Venda de Serviços Odontológicos não é Plano de Saúde. Trata-se de uma forma de venda pré-paga e/ou pós-paga de serviços odontológicos, que assegura ao(s) COMPRADOR(ES) apenas os serviços, preços e descontos aqui expressos.</strong></p>
+
+            <p>E por estarem assim, justos e contratados, assinam as partes o presente Contrato de Compra e Venda de Serviços Odontológicos, na presença de duas testemunhas.</p>
+        </div>
+
+        <!-- Data e Local -->
+        <div style="text-align: center; margin: 30px 0;">
+            <strong>{{cidade_contrato}}, {{data_contrato}}</strong>
+        </div>
+
+        <!-- Assinaturas -->
+        <div class="signatures">
+            <div class="signature-area">
+                <div class="signature-box">
+                    {{signature_html}}
+                    <div class="signature-line"></div>
+                    <div style="margin-top: 10px;"><strong>{{paciente_nome}}</strong></div>
+                </div>
+                <div class="signature-box">
+                    <div style="height: 80px;"></div>
+                    <div class="signature-line"></div>
+                    <div style="margin-top: 10px;"><strong>{{razao_social}}</strong></div>
+                </div>
+            </div>
+
+            <!-- Testemunhas -->
+            <div style="margin-top: 40px;">
+                <strong>TESTEMUNHAS:</strong>
+                <div class="witness-area">
+                    <div class="witness-box">
+                        <div class="witness-line"></div>
+                        <div>NOME</div>
+                        <div class="witness-line" style="margin-top: 20px;"></div>
+                        <div>R.G:</div>
+                    </div>
+                    <div class="witness-box">
+                        <div class="witness-line"></div>
+                        <div>NOME</div>
+                        <div class="witness-line" style="margin-top: 20px;"></div>
+                        <div>R.G:</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

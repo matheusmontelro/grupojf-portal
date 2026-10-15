@@ -1,0 +1,7 @@
+[allowlist]
+description = "Documented placeholder values"
+regexes = [
+  '''SUA_API_KEY_PUBLIC''',
+  '''<JWT_TOKEN>''',
+  '''change-me'''
+]

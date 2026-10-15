@@ -1,0 +1,23 @@
+name: Melhoria
+description: Sugerir melhoria ou nova funcionalidade
+title: "[Melhoria]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema
+      description: Qual necessidade esta melhoria resolve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposta
+      description: Como voce imagina a solucao?
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impacto
+      description: Quem usa isso e qual o ganho esperado?

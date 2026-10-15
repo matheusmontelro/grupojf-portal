@@ -1,0 +1,27 @@
+name: Bug
+description: Reportar erro ou regressao
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Descricao
+      description: O que aconteceu?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passos para reproduzir
+      placeholder: "1. ..."
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento esperado
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencias
+      description: Prints, logs sem segredos ou links internos.

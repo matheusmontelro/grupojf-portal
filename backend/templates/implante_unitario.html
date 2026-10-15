@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato de Implante Dentário Unitário</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .contract-type {
+            font-size: 22px;
+            font-weight: 300;
+            font-style: italic;
+        }
+        
+        .section {
+            background: white;
+            padding: 35px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border: 1px solid #e8e8e8;
+        }
+        
+        .section-title {
+            color: #1e3c72;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #2a5298;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .icon {
+            font-size: 28px;
+        }
+        
+        .patient-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2a5298;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+        
+        .info-value {
+            font-size: 16px;
+            color: #2c3e50;
+        }
+        
+        .treatment-phases {
+            margin: 30px 0;
+        }
+        
+        .phase {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f0f4f8;
+            border-radius: 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .phase:hover {
+            background: #e8eef5;
+            transform: translateX(5px);
+        }
+        
+        .phase-number {
+            background: #2a5298;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .phase-content {
+            flex: 1;
+        }
+        
+        .phase-title {
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        
+        .phase-description {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+        }
+        
+        .warning-box::before {
+            content: "⚠️";
+            font-size: 24px;
+            position: absolute;
+            top: 25px;
+            left: 25px;
+        }
+        
+        .warning-content {
+            margin-left: 40px;
+        }
+        
+        .financial-summary {
+            background: linear-gradient(to right, #f0f4f8, #e8eef5);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .price-display {
+            font-size: 48px;
+            color: #2a5298;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .included-items {
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        
+        .included-items ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .included-items li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .included-items li::before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+        }
+        
+        .terms-section {
+            margin-top: 30px;
+        }
+        
+        .term-item {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .term-number {
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: #2a5298;
+        }
+        
+        .signature-section {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 3px dashed #ccc;
+        }
+        
+        .signature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            margin-top: 40px;
+        }
+        
+        .signature-box {
+            text-align: center;
+        }
+        
+        .signature-line {
+            border-bottom: 2px solid #333;
+            margin: 50px 0 15px;
+            min-height: 50px;
+        }
+        
+        .signature-label {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+            .phase:hover {
+                background: #f0f4f8;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">{{razao_social}}</div>
+        <div class="contract-type">Contrato de Implante Dentário Unitário</div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">
+            <span class="icon">👤</span>
+            Identificação do Paciente
+        </div>
+        <div class="patient-info">
+            <div class="info-box">
+                <div class="info-label">Nome Completo</div>
+                <div class="info-value">{{paciente_nome}}</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">CPF</div>
+                <div class="info-value">{{paciente_cpf}}</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">Telefone</div>
+                <div class="info-value">{{paciente_telefone}}</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">Data do Contrato</div>
+                <div class="info-value">{{data_contrato}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">
+            <span class="icon">🦷</span>
+            Fases do Tratamento com Implante
+        </div>
+        
+        <div class="treatment-phases">
+            <div class="phase">
+                <div class="phase-number">1</div>
+                <div class="phase-content">
+                    <div class="phase-title">Avaliação e Planejamento</div>
+                    <div class="phase-description">
+                        Exame clínico detalhado, tomografia computadorizada, planejamento cirúrgico digital e 
+                        avaliação da necessidade de enxerto ósseo. Tempo estimado: 1-2 semanas.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="phase">
+                <div class="phase-number">2</div>
+                <div class="phase-content">
+                    <div class="phase-title">Cirurgia de Instalação</div>
+                    <div class="phase-description">
+                        Instalação do implante de titânio com técnica minimamente invasiva. 
+                        Inclui anestesia local, medicação pós-operatória e acompanhamento. Duração: 30-60 minutos.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="phase">
+                <div class="phase-number">3</div>
+                <div class="phase-content">
+                    <div class="phase-title">Osseointegração</div>
+                    <div class="phase-description">
+                        Período de integração do implante ao osso. Acompanhamento mensal para verificar 
+                        o processo de cicatrização. Tempo estimado: 3-6 meses.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="phase">
+                <div class="phase-number">4</div>
+                <div class="phase-content">
+                    <div class="phase-title">Prótese Definitiva</div>
+                    <div class="phase-description">
+                        Moldagem, confecção e instalação da coroa em porcelana ou zircônia. 
+                        Ajustes oclusais e estéticos incluídos. Tempo: 2-3 semanas.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">
+            <span class="icon">💰</span>
+            Investimento e Condições Financeiras
+        </div>
+        
+        <div class="financial-summary">
+            <div style="font-size: 20px; color: #666; margin-bottom: 10px;">Valor Total do Tratamento</div>
+            <div class="price-display">{{valor_total}}</div>
+            <div style="font-size: 16px; color: #666;">{{forma_pagamento}}</div>
+        </div>
+        
+        <div class="included-items">
+            <h4 style="color: #1e3c72; margin-bottom: 20px;">O que está incluído:</h4>
+            <ul>
+                <li>Implante importado de alta qualidade (Straumann, Nobel ou similar)</li>
+                <li>Componente protético e parafusos</li>
+                <li>Coroa em porcelana ou zircônia</li>
+                <li>Todas as consultas de acompanhamento</li>
+                <li>Radiografias de controle</li>
+                <li>Kit de higiene pós-cirúrgico</li>
+            </ul>
+        </div>
+        
+        <div class="warning-box">
+            <div class="warning-content">
+                <strong>Procedimentos não incluídos:</strong> Enxerto ósseo, levantamento de seio maxilar, 
+                extrações, tratamento de canal ou qualquer procedimento adicional necessário será orçado separadamente.
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">
+            <span class="icon">📋</span>
+            Termos e Responsabilidades
+        </div>
+        
+        <div class="terms-section">
+            <div class="term-item">
+                <span class="term-number">1.</span>
+                <strong>Garantia do Implante:</strong> O implante possui garantia vitalícia do fabricante contra defeitos. 
+                A garantia clínica é de 5 anos, condicionada ao comparecimento às consultas de manutenção semestrais.
+            </div>
+            
+            <div class="term-item">
+                <span class="term-number">2.</span>
+                <strong>Responsabilidade do Paciente:</strong> Manter excelente higiene oral, não fumar durante o tratamento, 
+                comparecer a todas as consultas agendadas e seguir rigorosamente as orientações pós-operatórias.
+            </div>
+            
+            <div class="term-item">
+                <span class="term-number">3.</span>
+                <strong>Condições de Saúde:</strong> O paciente declara ter informado todas as condições de saúde, 
+                medicamentos em uso e alergias. Diabetes não controlada, tabagismo e osteoporose podem afetar o resultado.
+            </div>
+            
+            <div class="term-item">
+                <span class="term-number">4.</span>
+                <strong>Prazo de Validade:</strong> Este orçamento é válido por 30 dias. Após este período, 
+                os valores podem ser reajustados.
+            </div>
+            
+            <div class="term-item">
+                <span class="term-number">5.</span>
+                <strong>Política de Cancelamento:</strong> Em caso de desistência após o início do tratamento, 
+                não haverá devolução dos valores referentes aos procedimentos já realizados e materiais utilizados.
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">
+            <span class="icon">⚕️</span>
+            Consentimento Informado
+        </div>
+        
+        <p style="text-align: justify; line-height: 1.8;">
+            Declaro ter sido esclarecido(a) sobre os procedimentos a serem realizados, seus riscos, benefícios e alternativas 
+            de tratamento. Compreendo que o sucesso do implante depende de fatores biológicos individuais e do cumprimento 
+            das orientações profissionais. Autorizo a realização do tratamento proposto e comprometo-me a seguir todas as 
+            recomendações para garantir o melhor resultado possível.
+        </p>
+        
+        <p style="text-align: justify; line-height: 1.8; margin-top: 20px;">
+            <strong>Profissional Responsável:</strong> {{dentista_nome}} - CRO: {{dentista_cro}}<br>
+            <strong>Especialidade:</strong> Implantodontia
+        </p>
+    </div>
+
+    <div class="signature-section">
+        <p style="text-align: center; font-size: 16px; color: #666; margin-bottom: 40px;">
+            Por estar de acordo com todos os termos apresentados, assinam o presente contrato:
+        </p>
+        
+        <div class="signature-grid">
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <div style="font-weight: bold;">{{paciente_nome}}</div>
+                <div class="signature-label">Paciente/Responsável</div>
+            </div>
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <div style="font-weight: bold;">{{dentista_nome}}</div>
+                <div class="signature-label">Implantodontista - CRO: {{dentista_cro}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p style="font-size: 18px; margin-bottom: 10px;">{{razao_social}}</p>
+        <p>CNPJ: {{cnpj}} | {{endereco}}</p>
+        <p>Telefone: {{telefone}} | E-mail: contato@clinica.com.br</p>
+        <p style="margin-top: 15px; font-size: 12px;">
+            Este documento foi assinado digitalmente em {{data_contrato}} e possui validade jurídica.
+        </p>
+    </div>
+</body>
+</html>
