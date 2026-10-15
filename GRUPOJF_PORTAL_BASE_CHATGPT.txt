@@ -1,0 +1,138 @@
+# Base de consulta — Grupo JF Portal
+
+Este arquivo serve como contexto inicial para um Projeto do ChatGPT. Ele descreve
+a versão pública e sanitizada do código-fonte, destinada a consulta, análise,
+documentação e apoio de desenvolvimento.
+
+Repositório público: https://github.com/matheusmontelro/grupojf-portal
+
+## Como o ChatGPT deve usar esta base
+
+- Trate o repositório como referência de arquitetura e de código, não como um ambiente de produção.
+- Preserve contratos de API: nomes de campos, formatos de payload, rotas e códigos de erro.
+- Priorize segurança e privacidade: não invente credenciais, dados de pacientes, documentos, telefones, e-mails reais ou dados financeiros.
+- Quando uma informação não estiver no repositório, declare a limitação e peça o arquivo, contrato ou contexto necessário.
+- Sugira alterações pequenas, testáveis e reversíveis. Explique os arquivos afetados e os testes recomendados.
+- Não proponha comandos de deploy, migração de banco, reinício de serviço ou configuração de infraestrutura.
+
+## Finalidade da versão pública
+
+Esta cópia exclui infraestrutura, automações operacionais, configurações de servidor, referências a provedores de VPS, contatos internos e dados de exemplo que poderiam identificar pessoas. Alguns módulos e fluxos exclusivamente operacionais foram removidos por esse motivo.
+
+Assim, ela é adequada para consulta e discussão técnica, mas não deve ser usada como artefato pronto para operação em produção.
+
+## Visão geral
+
+O Grupo JF Portal é um monorepo de gestão administrativa, financeira e comercial para unidades de saúde. Ele cobre, entre outros temas:
+
+- usuários, autenticação e permissões;
+- pacientes e dependentes;
+- vendas, pré-vendas, parcelas, boletos e carnês;
+- faturas avulsas e recorrentes;
+- regras e relatórios de split;
+- contratos digitais e anamnese digital;
+- gestão de empresas, dentistas, cargos e produtos;
+- relatórios de vendas, caixa e financeiro.
+
+## Tecnologias principais
+
+### Backend
+
+- Python 3, FastAPI e Pydantic
+- SQLAlchemy e psycopg2 para acesso a PostgreSQL
+- Celery e Redis para tarefas assíncronas
+- Pandas, OpenPyXL e ReportLab para relatórios e arquivos
+
+O ponto de entrada da API é `backend/app/main.py`. As rotas são agrupadas principalmente em `backend/app/routers/`; regras de domínio, integrações e serviços ficam em `backend/app/services/` e em módulos especializados.
+
+### Frontend
+
+- React com TypeScript e Create React App (`react-scripts`)
+- React Router
+- Material UI, Tailwind helpers, Lucide e Heroicons
+- Axios para comunicação HTTP
+- React Hook Form, Zod e Testing Library
+
+O código do frontend está em `frontend/src/`. As páginas ficam em `frontend/src/pages/`, componentes reutilizáveis em `frontend/src/components/` e clientes HTTP em `frontend/src/api/`.
+
+## Estrutura principal
+
+```text
+backend/
+  app/
+    routers/             # Endpoints FastAPI por domínio
+    models/              # Modelos e regras ligadas ao banco
+    services/            # Serviços de domínio
+    middleware/          # Autenticação e API key
+    database/            # Conexão e acesso a dados
+    digital_contracts/   # Contratos digitais
+    anamnese_digital/    # Anamnese e fluxo público associado
+    *_sdk/               # Clientes/adaptadores de integrações
+    workers/             # Tarefas assíncronas
+  docs/                  # Documentação técnica sanitizada
+  tests/                 # Testes do backend
+
+frontend/
+  src/
+    api/                 # Clientes e tipos de API
+    pages/               # Telas
+    components/          # Componentes reutilizáveis
+    contexts/            # Estado e permissões no cliente
+    routes/              # Proteção e definição de rotas
+    hooks/, styles/, utils/, types/
+```
+
+## Domínios relevantes do backend
+
+| Domínio | Locais principais |
+| --- | --- |
+| Autenticação e usuários | `routers/auth.py`, `routers/users.py`, `middleware/` |
+| Pacientes e dependentes | `routers/pacientes.py`, `routers/dependentes.py`, `pacientes_sdk/` |
+| Vendas e pré-vendas | `routers/venda.py`, `routers/vendas_list.py`, `routers/pre_venda.py` |
+| Financeiro | `routers/financeiro_pagamentos.py`, `routers/transacoes.py`, `services/` |
+| Boletos e carnês | `routers/boletos.py`, `routers/carne.py`, `boleto_sdk/`, `carne_sdk/` |
+| Faturas | `routers/fatura_avulsa.py`, `routers/fatura_recorrente.py` |
+| Splits e relatórios | `routers/regras_split.py`, `routers/relatorio_splits_seller*.py` |
+| Contratos digitais | `digital_contracts/`, `routers/contratos.py` |
+| Anamnese | `anamnese_digital/`, páginas e componentes de assinatura |
+| Cadastros administrativos | produtos, dentistas, empresas, cargos e formas de pagamento |
+
+## Endpoints e segurança
+
+A aplicação FastAPI é criada em `backend/app/main.py` e expõe documentação em `/docs` e `/redoc` quando executada em um ambiente de desenvolvimento adequado. As rotas da aplicação normalmente usam o prefixo `/api`.
+
+Há middleware de autenticação e de API key. Ao analisar ou propor uma mudança, verifique se a rota deve ser privada, pública ou protegida por uma chave de API. Nunca remova validações de autorização como atalho para implementar uma tela ou integração.
+
+## Telas importantes do frontend
+
+Entre as páginas disponíveis estão login, painel inicial, cadastro e ficha de pacientes, vendas, parcelas, boletos, carnês, caixa diário, financeiro, relatórios, contratos digitais, anamnese, empresas, dentistas e usuários.
+
+Os fluxos de venda e financeiro possuem impacto alto. Antes de mudar uma tela, identifique o cliente de API correspondente em `frontend/src/api/`, a rota do backend e os componentes compartilhados já utilizados em telas próximas.
+
+## Convenções para sugestões de alteração
+
+1. Comece localizando o fluxo completo: página/componente, cliente de API, rota, serviço e modelo afetados.
+2. Preserve compatibilidade de payload e de permissões por unidade.
+3. Para uma nova rota, descreva método HTTP, caminho, autenticação, entrada, saída, validações e erros esperados.
+4. Para frontend, cubra estados de carregamento, erro, vazio e responsividade.
+5. Inclua testes focados quando a alteração muda comportamento.
+6. Não inclua segredos em exemplos. Use nomes de variáveis de ambiente e valores claramente fictícios quando necessário.
+
+## Perguntas úteis que podem ser feitas ao ChatGPT
+
+- “Explique o fluxo de uma venda desde a tela até a API.”
+- “Quais arquivos preciso alterar para incluir um campo em pacientes?”
+- “Revise esta alteração preservando permissões por unidade.”
+- “Monte testes para esta rota FastAPI sem usar dados pessoais.”
+- “Compare esta tela com os padrões já presentes no frontend.”
+- “Produza uma especificação curta para esta mudança antes de escrever código.”
+
+## Limites desta base
+
+- Não contém infraestrutura, configuração de servidor, deploy ou dados reais.
+- Não substitui a leitura dos arquivos específicos quando for necessário alterar código.
+- Não garante que integrações externas estejam disponíveis; trate integrações como contratos que precisam ser confirmados no ambiente apropriado.
+
+## Instrução sugerida para configurar o Projeto do ChatGPT
+
+“Use os arquivos deste Projeto como contexto técnico do Grupo JF Portal. Responda em português do Brasil, seja objetivo e priorize segurança, privacidade, compatibilidade de API e permissões por unidade. Antes de sugerir uma alteração, identifique os arquivos e contratos afetados. Não invente infraestrutura, credenciais ou dados reais; use placeholders. Para mudanças de comportamento, proponha também validações e testes focados.”
